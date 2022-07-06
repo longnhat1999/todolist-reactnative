@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-nati
 import React from 'react';
 
 import Task from './components/Task';
-import styles from './App.components.style'
+import Form from './components/Form';
+import styles from './App.components.style';
+
 
 export default function App() {
   return (
@@ -12,11 +14,13 @@ export default function App() {
         <Text style={styles.header}>Todo List</Text>
         <ScrollView style={styles.items}>
           <Task />
-          
+          <Task />
         </ScrollView>
         
       </View>
-      <View></View>
+      <View>
+        <Form />
+      </View>
     </View>
   );
 }
