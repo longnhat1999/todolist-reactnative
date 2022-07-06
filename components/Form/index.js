@@ -1,15 +1,17 @@
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Keyboard } from 'react-native'
 import React, {useState} from 'react'
 import styles from './style'
 
-const Form = () => {
+const Form = (props) => {
   const [task, setTask] = useState('')
   const handleAddTask= () => {
     if(task.length === 0){
       alert('Vui lòng nhập công việc!')
       return false;
     }
-    alert(task);
+    props.onAddTask(task);
+    setTask('')
+    Keyboard.dismiss();
   }
   return (
     <KeyboardAvoidingView 
@@ -18,6 +20,7 @@ const Form = () => {
       style={styles.addTask}
     >
       <TextInput 
+        value={task}
         placeholder='Your Task'
         onChangeText={setTask}
         // onChangeText={(text) => setTask(text)} 
